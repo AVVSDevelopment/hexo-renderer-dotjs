@@ -40,15 +40,11 @@ function __loadPartial(caller, context){
 }
 
 hexo.extend.renderer.register('dot', 'html', function(data, context){
+
     context.__loadPartial = __loadPartial(data.path, context);
 
-    try {
-        var template = _cache[data.path] ? _cache[data.path] : doT.template(data.text, null, partialLoader(data.path));
-        _cache[data.path] = template;
-        return template(context);
-    } catch (error) {
-        console.log(data.path)
-        console.error(error);
-    }
+    var template = _cache[data.path] ? _cache[data.path] : doT.template(data.text, null, partialLoader(data.path));
+    _cache[data.path] = template;
+    return template(context);
 
 }, true);
