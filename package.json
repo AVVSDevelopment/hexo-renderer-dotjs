@@ -1,0 +1,22 @@
+{
+  "name": "hexo-renderer-dotjs",
+  "version": "0.1.0",
+  "description": "Enables hexo to render dot.js templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AVVSDevelopment/hexo-renderer-dotjs.git"
+  },
+  "keywords": [
+    "hexo",
+    "plugin",
+    "dot.js"
+  ],
+  "author": "Vitaly Aminev <v@makeomatic.ru>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "92af3c0cd3ef4cd6e372527437a10e429a152ce1"
+}
