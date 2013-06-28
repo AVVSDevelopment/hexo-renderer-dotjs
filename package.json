@@ -1,6 +1,6 @@
 {
   "name": "hexo-renderer-dotjs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Enables hexo to render dot.js templates",
   "main": "index.js",
   "scripts": {
