@@ -28,16 +28,16 @@ var partialLoader = function(caller){
 
 function __loadPartial(caller, context){
     return function(file){
+
         // generate loader function
         var loaderFunc = partialLoader(caller);
-        // get compiled template
-        var template = _cache[file] ? _cache[file] : doT.template(loaderFunc.load(file), null, loaderFunc);
-        // cache template
-        _cache[caller] = template;
+        // get template, no caching - otherwise will pollute global env
+        var template = doT.template(loaderFunc.load(file), null, loaderFunc);
 
         return template(context);
     };
 }
+
 
 hexo.extend.renderer.register('dot', 'html', function(data, context){
 
