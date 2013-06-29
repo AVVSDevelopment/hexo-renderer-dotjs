@@ -1,11 +1,8 @@
 {
   "name": "hexo-renderer-dotjs",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Enables hexo to render dot.js templates",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/AVVSDevelopment/hexo-renderer-dotjs.git"
