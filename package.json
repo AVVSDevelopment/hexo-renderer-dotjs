@@ -1,6 +1,6 @@
 {
   "name": "hexo-renderer-dotjs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Enables hexo to render dot.js templates",
   "main": "index.js",
   "repository": {
@@ -15,9 +15,8 @@
   "author": "Vitaly Aminev <v@makeomatic.ru>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "92af3c0cd3ef4cd6e372527437a10e429a152ce1",
   "dependencies": {
-    "lodash": "~1.3.1",
-    "dot": "~1.0.1"
+    "dot": "^1.0.3",
+    "lodash": "^3.9.3"
   }
 }

@@ -1,3 +1,7 @@
+/* global hexo */
+
+'use strict';
+
 var doT = require('dot'),
     fs  = require('fs'),
     path = require('path'),
@@ -8,10 +12,10 @@ var _cache = {},
     _partialsCache = {},
     _globals = {
         //tmp function -- disables overwriting via setGlobals
-        load: function(){}
+        load: _.noop
     };
 
-var globalGenerator = function(caller){
+var globalGenerator = function (caller) {
     var instance =  {
         load: function (file){
             var template = null;
@@ -20,7 +24,7 @@ var globalGenerator = function(caller){
             template = _partialsCache[file];
 
             // no content so let's load from file system
-            if (template == null) {
+            if (!template) {
                 var route = path.join(path.dirname(caller), file+".dot");
                 template = fs.readFileSync(route, "utf-8");
                 _partialsCache[file] = template;
@@ -29,32 +33,31 @@ var globalGenerator = function(caller){
             return template;
         }
     };
-    return _.extend({},_globals, instance);
+    return _.extend({}, _globals, instance);
 };
 
 var _settings = doT.templateSettings;
 
 exports.setGlobals = function (globals) {
-    'use strict';
     for (var f in _globals) {
-        if (globals[f] == null) {
+        if (!globals[f]) {
             globals[f] = _globals[f];
+        } else {
+            throw new Error('Your global uses reserved utility: ' + f);
         }
-        else
-            throw new Error("Your global uses reserved utility: " + f);
     }
     _globals = globals;
 };
 
 exports.setTemplateSettings = function (settings) {
-    'use strict';
+
     for (var f in settings) {
         _settings[f] = settings[f];
     }
 };
 
-function __loadPartial(caller, context){
-    return function(file){
+function __loadPartial (caller, context) {
+    return function (file) {
 
         // generate loader function
         var globals = globalGenerator(caller);
